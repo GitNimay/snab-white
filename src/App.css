@@ -55,60 +55,9 @@ body {
   min-height: 100vh;
 }
 
-/* Radial-masked geometric grid overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: 
-    linear-gradient(rgba(9, 84, 63, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(9, 84, 63, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  background-position: center top;
-  mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
-}
 
-/* Floating animated mesh glow blobs */
-.glow-blob {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  filter: blur(140px);
-  -webkit-filter: blur(140px);
-  opacity: 0.16;
-  pointer-events: none;
-  animation: floatGlow 25s infinite alternate ease-in-out;
-}
 
-.glow-blob-1 {
-  background-color: #09543F; /* Emerald Glow */
-  top: -150px;
-  left: -150px;
-  animation-delay: 0s;
-}
 
-.glow-blob-2 {
-  background-color: #CBB696; /* Gold/Sand Glow */
-  bottom: -150px;
-  right: -150px;
-  animation-delay: -12s;
-}
-
-@keyframes floatGlow {
-  0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-  }
-  50% {
-    transform: translate(140px, 90px) scale(1.15) rotate(180deg);
-  }
-  100% {
-    transform: translate(-60px, 160px) scale(0.9) rotate(360deg);
-  }
-}
 
 /* ==========================================
    PAGE ENTRY TRANSITION
