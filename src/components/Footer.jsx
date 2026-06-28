@@ -4,8 +4,11 @@ import logoImg from '../assets/snab-nobg.png';
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-container">
+    <footer className="footer" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Giant footer watermark background */}
+      <div className="footer-watermark">SNAB</div>
+
+      <div className="footer-container" style={{ position: 'relative', zIndex: 1 }}>
         
         <div className="footer-grid">
           {/* Logo and Tagline Column */}

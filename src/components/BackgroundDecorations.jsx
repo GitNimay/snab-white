@@ -17,6 +17,9 @@ export default function BackgroundDecorations() {
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden' }}>
       
+      {/* 0. Giant background branding watermark */}
+      <div className="main-site-watermark">SNAB</div>
+      
       {/* 1. Neutral Spotlight follow cursor (pure colorless light, no green/gold tint) */}
       <div 
         style={{

@@ -2004,4 +2004,54 @@ button, input, select, textarea {
   }
 }
 
+/* ==========================================
+   MAIN SITE WATERMARK BACKGROUND
+   ========================================== */
+.main-site-watermark {
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  font-size: 28vw;
+  font-weight: 900;
+  color: rgba(17, 27, 24, 0.04);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  font-family: var(--font-sans);
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .main-site-watermark {
+    bottom: -40px;
+    right: -40px;
+    font-size: 32vw;
+  }
+}
+
+/* ==========================================
+   FOOTER WATERMARK BACKGROUND
+   ========================================== */
+.footer-watermark {
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  font-size: 16vw;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  font-family: var(--font-sans);
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-watermark {
+    bottom: -20px;
+    right: -15px;
+    font-size: 20vw;
+  }
+}
+
 

@@ -35,7 +35,7 @@ export default function About() {
       <AboutComponent />
 
       {/* Why Choose Us Section */}
-      <section className="why-section" style={{ backgroundColor: '#F8F7F4', borderTop: '1px solid #E5E7EB' }}>
+      <section className="why-section" style={{ backgroundColor: 'transparent', borderTop: '1px solid #E5E7EB' }}>
         <div className="section-title-wrapper" style={{ marginBottom: '60px' }}>
           <span className="section-tag">Why Choose Us</span>
           <h2 className="section-title">Engineered for Quality, Scale, and Long-Term Success</h2>

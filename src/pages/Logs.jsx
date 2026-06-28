@@ -53,7 +53,7 @@ export default function Logs() {
   ];
 
   return (
-    <section className="careers-section" style={{ backgroundColor: '#F8F7F4' }}>
+    <section className="careers-section" style={{ backgroundColor: 'transparent' }}>
       <div className="section-title-wrapper">
         <span className="section-tag">System Logs</span>
         <h2 className="section-title">Product Updates & System Changelog</h2>
