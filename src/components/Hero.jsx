@@ -1,23 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [service, setService] = useState('AI & Machine Learning');
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-    }, 1200);
-  };
-
   return (
     <section className="hero">
       <div className="hero-grid">
@@ -53,105 +37,56 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: Professional B2B Consultation Form Card */}
-        <div className="hero-planner-card glass-card" style={{ padding: '36px' }}>
-          {submitted ? (
-            <div style={{ textAlign: 'center', padding: '20px 0' }}>
-              <div className="contact-icon" style={{ margin: '0 auto 20px', width: '60px', height: '60px' }}>✓</div>
-              <h3 className="process-item-title" style={{ fontSize: '1.35rem', marginBottom: '12px' }}>Request Submitted</h3>
-              <p className="grey-text" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
-                Thank you, <strong>{name}</strong>. We have received your consultation inquiry. A technical strategist will contact you at <strong>{email}</strong> within 24 business hours to set up our introductory session.
+        {/* Right Side: Clean Textual Core Focus Card */}
+        <div 
+          className="hero-planner-card glass-card" 
+          style={{ 
+            padding: '36px', 
+            minHeight: '400px', 
+            display: 'flex', 
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: '24px'
+          }}
+        >
+          <div>
+            <span className="blog-card-tag" style={{ fontSize: '0.75rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Core Expertise</span>
+            <h3 className="process-item-title" style={{ fontSize: '1.35rem', marginTop: '6px', color: 'var(--color-text-main)' }}>Engineering Capabilities</h3>
+            <p className="grey-text" style={{ fontSize: '0.85rem', marginTop: '6px', lineHeight: '1.4' }}>
+              We partner with businesses to deliver scalable cloud architecture and intelligent digital products.
+            </p>
+          </div>
+
+          <div className="process-card-divider" style={{ margin: 0 }}></div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <h4 className="perk-title" style={{ fontSize: '0.95rem', color: '#09543F', margin: 0 }}>
+                Intelligent AI Solutions
+              </h4>
+              <p className="grey-text" style={{ fontSize: '0.8rem', margin: 0, lineHeight: '1.4' }}>
+                Building vector search pipelines, custom contextual LLM agents, and safety validation guardrails.
               </p>
-              <button 
-                className="btn btn-secondary" 
-                style={{ marginTop: '24px', backgroundColor: '#FFFFFF' }}
-                onClick={() => {
-                  setSubmitted(false);
-                  setName('');
-                  setEmail('');
-                  setMessage('');
-                }}
-              >
-                Submit New Inquiry
-              </button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div>
-                <h3 className="process-item-title" style={{ fontSize: '1.35rem', color: 'var(--color-text-main)' }}>Request a Consultation</h3>
-                <p className="grey-text" style={{ fontSize: '0.85rem', marginTop: '6px' }}>Let us know about your project requirements and target timeline.</p>
-              </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <h4 className="perk-title" style={{ fontSize: '0.95rem', color: '#09543F', margin: 0 }}>
+                High-Performance Infrastructure
+              </h4>
+              <p className="grey-text" style={{ fontSize: '0.8rem', margin: 0, lineHeight: '1.4' }}>
+                Designing auto-scaling serverless clusters, PgBouncer database pooling, and redundant replica clouds.
+              </p>
+            </div>
 
-              {/* Full Name */}
-              <div className="planner-form-group">
-                <label className="planner-form-label" htmlFor="b2b-name">Full Name</label>
-                <input 
-                  type="text" 
-                  id="b2b-name"
-                  className="form-input" 
-                  required
-                  placeholder="e.g. Jane Doe"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-
-              {/* Business Email */}
-              <div className="planner-form-group">
-                <label className="planner-form-label" htmlFor="b2b-email">Business Email</label>
-                <input 
-                  type="email" 
-                  id="b2b-email"
-                  className="form-input" 
-                  required
-                  placeholder="e.g. jane@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              {/* Desired Service Selection */}
-              <div className="planner-form-group">
-                <label className="planner-form-label" htmlFor="b2b-service">Desired Service</label>
-                <select 
-                  id="b2b-service"
-                  className="planner-select"
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                  style={{ backgroundColor: '#FFFFFF', padding: '12px' }}
-                >
-                  <option value="AI & Machine Learning">AI & Machine Learning</option>
-                  <option value="Software Development">Software Development</option>
-                  <option value="Cloud & DevOps Solutions">Cloud & DevOps Solutions</option>
-                  <option value="Technology Consulting">Technology Consulting</option>
-                </select>
-              </div>
-
-              {/* Message Details */}
-              <div className="planner-form-group">
-                <label className="planner-form-label" htmlFor="b2b-message">Project Description</label>
-                <textarea 
-                  id="b2b-message"
-                  className="form-input" 
-                  rows="3"
-                  placeholder="Please describe your product goals, engineering requirements, and timeline..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                ></textarea>
-              </div>
-
-              {/* Submit Button */}
-              <button 
-                type="submit" 
-                className="btn btn-primary"
-                style={{ width: '100%', padding: '14px', marginTop: '4px' }}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting Inquiry..." : "Request Consultation"}
-              </button>
-            </form>
-          )}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <h4 className="perk-title" style={{ fontSize: '0.95rem', color: '#09543F', margin: 0 }}>
+                Modern Digital Products
+              </h4>
+              <p className="grey-text" style={{ fontSize: '0.8rem', margin: 0, lineHeight: '1.4' }}>
+                Delivering highly responsive web and mobile interfaces built in React, Next.js, and Swift.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
