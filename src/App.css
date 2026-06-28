@@ -2094,7 +2094,64 @@ button, input, select, textarea {
   width: 380px !important;
   flex-shrink: 0 !important;
   box-sizing: border-box;
-  margin: 0 !important;
+}
+
+/* ==========================================
+   ANIMATED MARQUEE SCROLL
+   ========================================== */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 24px 0;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 32px;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4.5vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.marquee-text.solid {
+  color: var(--color-text-main);
+}
+
+.marquee-text.outlined {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-text-main);
+}
+
+.marquee-separator {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.333%, 0, 0);
+  }
 }
 
 
