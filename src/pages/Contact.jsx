@@ -11,7 +11,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate submission
     setFormSubmitted(true);
   };
 
@@ -30,7 +29,7 @@ export default function Contact() {
         <div className="contact-info-side">
           <span className="section-tag">Get in Touch</span>
           <h2 className="contact-info-title">Let's Turn Your Vision into Reality</h2>
-          <p className="grey-text" style={{ fontSize: '1.05rem', lineHeight: '1.7' }}>
+          <p className="grey-text" style={{ fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '32px' }}>
             Whether you have a specific software spec ready to build or just want to explore how AI can automate your operations, our consulting team is here to help.
           </p>
           
@@ -43,7 +42,11 @@ export default function Contact() {
             </div>
             <div>
               <span className="contact-label">Email</span>
-              <div className="contact-value">info@snabinnovations.com</div>
+              <div className="contact-value">
+                <a href="mailto:info.snabinnovations@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  info.snabinnovations@gmail.com
+                </a>
+              </div>
             </div>
           </div>
 
@@ -55,11 +58,29 @@ export default function Contact() {
             </div>
             <div>
               <span className="contact-label">Phone</span>
-              <div className="contact-value">+91-XXXXXXXXXX</div>
+              <div className="contact-value">
+                <a href="tel:9545556045" style={{ color: 'inherit', textDecoration: 'none' }}>9545556045</a> / <a href="tel:8767401706" style={{ color: 'inherit', textDecoration: 'none' }}>8767401706</a>
+              </div>
             </div>
           </div>
 
           <div className="contact-item">
+            <div className="contact-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="9" r="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <span className="contact-label">Office Address</span>
+              <div className="contact-value" style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
+                Office No. 5 or 6, Janki Plaza,<br />
+                Dwarka Circle, Nashik - 422006
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-item" style={{ marginBottom: '0' }}>
             <div className="contact-icon">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round"/>
@@ -70,6 +91,36 @@ export default function Contact() {
               <span className="contact-label">Business Hours</span>
               <div className="contact-value">Monday – Friday: 9:00 AM – 6:00 PM</div>
             </div>
+          </div>
+
+          {/* Styled Google Maps iframe integrated according to the theme */}
+          <div 
+            className="glass-card" 
+            style={{ 
+              marginTop: '32px', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              border: '1px solid var(--color-border)',
+              height: '240px',
+              width: '100%',
+              position: 'relative'
+            }}
+          >
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239.84197938085202!2d73.79708480301295!3d19.99243517548137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeafd1b3f8a81%3A0xe6711c4d916b72e9!2sJanki%20Plaza!5e0!3m2!1sen!2sin!4v1782675410861!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ 
+                border: 0, 
+                filter: 'grayscale(1) contrast(1.05) opacity(0.9)', 
+                pointerEvents: 'auto',
+                display: 'block'
+              }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="SNAB Nashik Office Map Location"
+            ></iframe>
           </div>
         </div>
 

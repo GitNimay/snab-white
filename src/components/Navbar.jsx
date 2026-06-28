@@ -92,16 +92,17 @@ export default function Navbar() {
             <div className="overlay-info-block">
               <span className="overlay-meta-label">Connect</span>
               <div className="overlay-social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://x.com/snabInnovations" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                <a href="https://instagram.com/snab_innovations" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
               </div>
             </div>
             
             <div className="overlay-info-block">
               <span className="overlay-meta-label">Contact Details</span>
-              <p className="overlay-info-text">info@snabinnovations.com</p>
-              <p className="overlay-info-text" style={{ opacity: 0.5 }}>© 2026 SNAB Innovations</p>
+              <p className="overlay-info-text">info.snabinnovations@gmail.com</p>
+              <p className="overlay-info-text" style={{ fontSize: '0.85rem' }}>+91 9545556045 / 8767401706</p>
+              <p className="overlay-info-text" style={{ opacity: 0.5, fontSize: '0.8rem', marginTop: '8px' }}>© 2026 SNAB Innovations</p>
             </div>
           </div>
         </div>
