@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import Careers from './pages/Careers';
 import Logs from './pages/Logs';
 import BackgroundDecorations from './components/BackgroundDecorations';
+import ChatAssistant from './components/ChatAssistant';
 import './App.css';
 
 // Utility helper to scroll to top on route change
@@ -67,6 +68,7 @@ function App() {
       <ScrollToTop />
       <EntryAnimations />
       <BackgroundDecorations />
+      <ChatAssistant />
       <Navbar />
       <Routes>
         <Route path="/" element={<div className="page-container"><Home /></div>} />

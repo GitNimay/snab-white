@@ -6,39 +6,106 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className={`navbar ${isMenuOpen ? 'mobile-active' : ''}`}>
-      <div className="navbar-container">
-        <Link to="/" className="logo" aria-label="SNAB Innovations Home" onClick={() => setIsMenuOpen(false)}>
-          <img src={logoImg} className="logo-icon" alt="SNAB Innovations Logo" width="32" height="32" style={{ objectFit: 'contain' }} />
-          <span className="logo-text" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>snab</span>
-        </Link>
-        
-        <nav className="nav-menu">
-          <Link to="/" className="nav-item" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/about" className="nav-item" onClick={() => setIsMenuOpen(false)}>About</Link>
-          <Link to="/services" className="nav-item" onClick={() => setIsMenuOpen(false)}>Services</Link>
-          <Link to="/portfolio" className="nav-item" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
-          <Link to="/blog" className="nav-item" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-          <Link to="/careers" className="nav-item" onClick={() => setIsMenuOpen(false)}>Careers</Link>
-          <Link to="/logs" className="nav-item" onClick={() => setIsMenuOpen(false)}>Logs</Link>
-          <Link to="/contact" className="nav-item" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-        </nav>
-        
-        <div className="nav-actions">
-          <Link to="/contact" className="btn btn-primary btn-nav">Book a Consultation <span className="arrow-right">→</span></Link>
+    <>
+      <header className={`navbar ${isMenuOpen ? 'mobile-active' : ''}`}>
+        <div className="navbar-container">
+          <Link to="/" className="logo" aria-label="SNAB Innovations Home" onClick={() => setIsMenuOpen(false)}>
+            <img src={logoImg} className="logo-icon" alt="SNAB Innovations Logo" width="32" height="32" style={{ objectFit: 'contain' }} />
+            <span className="logo-text" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>snab</span>
+          </Link>
+          
+          <nav className="nav-menu">
+            <Link to="/" className="nav-item">Home</Link>
+            <Link to="/about" className="nav-item">About</Link>
+            <Link to="/services" className="nav-item">Services</Link>
+            <Link to="/portfolio" className="nav-item">Portfolio</Link>
+            <Link to="/blog" className="nav-item">Blog</Link>
+            <Link to="/careers" className="nav-item">Careers</Link>
+            <Link to="/logs" className="nav-item">Logs</Link>
+            <Link to="/contact" className="nav-item">Contact</Link>
+          </nav>
+          
+          <div className="nav-actions">
+            <Link to="/contact" className="btn btn-primary btn-nav">Book a Consultation <span className="arrow-right">→</span></Link>
+          </div>
+          
+          <button 
+            className="mobile-menu-toggle" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            style={{ zIndex: 1000001 }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        
+      </header>
+
+      {/* Unique Mobile Full-Screen Overlay */}
+      <div className={`unique-mobile-overlay ${isMenuOpen ? 'active' : ''}`}>
+        {/* Dedicated Close Button */}
         <button 
-          className="mobile-menu-toggle" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
+          className="overlay-close-btn"
+          onClick={() => setIsMenuOpen(false)}
+          aria-label="Close menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          ✕
         </button>
+
+        {/* Soft background watermark */}
+        <div className="overlay-watermark">SNAB</div>
+        
+        <div className="overlay-container">
+          <div className="overlay-left-col">
+            <span className="overlay-meta-label">Navigation</span>
+            <nav className="overlay-menu-list">
+              <Link to="/" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">01 /</span> Home
+              </Link>
+              <Link to="/about" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">02 /</span> About Studio
+              </Link>
+              <Link to="/services" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">03 /</span> Digital Services
+              </Link>
+              <Link to="/portfolio" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">04 /</span> Case Studies
+              </Link>
+              <Link to="/blog" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">05 /</span> Tech Blog
+              </Link>
+              <Link to="/careers" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">06 /</span> Careers & Jobs
+              </Link>
+              <Link to="/logs" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">07 /</span> Changelog
+              </Link>
+              <Link to="/contact" className="overlay-menu-link" onClick={() => setIsMenuOpen(false)}>
+                <span className="overlay-num">08 /</span> Get In Touch
+              </Link>
+            </nav>
+          </div>
+
+          <div className="overlay-right-col">
+            <div className="overlay-info-block">
+              <span className="overlay-meta-label">Connect</span>
+              <div className="overlay-social-links">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+              </div>
+            </div>
+            
+            <div className="overlay-info-block">
+              <span className="overlay-meta-label">Contact Details</span>
+              <p className="overlay-info-text">info@snabinnovations.com</p>
+              <p className="overlay-info-text" style={{ opacity: 0.5 }}>© 2026 SNAB Innovations</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+    </>
   );
 }
