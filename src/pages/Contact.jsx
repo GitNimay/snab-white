@@ -1,25 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectType: 'ai',
-    message: ''
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const [state, handleSubmit] = useForm("xojolqky");
 
   return (
     <section className="contact-section" id="contact">
@@ -126,7 +109,7 @@ export default function Contact() {
 
         {/* Form Column */}
         <div>
-          {formSubmitted ? (
+          {state.succeeded ? (
             <div className="contact-form" style={{ textAlign: 'center', padding: '60px 40px' }}>
               <div className="contact-icon" style={{ margin: '0 auto 24px', width: '60px', height: '60px' }}>✓</div>
               <h3 className="process-detail-title">Request Submitted!</h3>
@@ -146,10 +129,9 @@ export default function Contact() {
                   id="name"
                   name="name" 
                   required 
-                  value={formData.name}
-                  onChange={handleChange}
                   placeholder="John Doe"
                 />
+                <ValidationError prefix="Name" field="name" errors={state.errors} style={{ color: '#EF4444', fontSize: '0.8rem', marginTop: '4px' }} />
               </div>
 
               <div className="form-group">
@@ -160,10 +142,9 @@ export default function Contact() {
                   id="email"
                   name="email" 
                   required 
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="john@company.com"
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} style={{ color: '#EF4444', fontSize: '0.8rem', marginTop: '4px' }} />
               </div>
 
               <div className="form-group">
@@ -172,8 +153,7 @@ export default function Contact() {
                   className="form-input" 
                   id="projectType"
                   name="projectType"
-                  value={formData.projectType}
-                  onChange={handleChange}
+                  defaultValue="ai"
                 >
                   <option value="ai">AI & Machine Learning Solutions</option>
                   <option value="software">Custom Software Development</option>
@@ -192,14 +172,24 @@ export default function Contact() {
                   name="message" 
                   rows="4" 
                   required
-                  value={formData.message}
-                  onChange={handleChange}
                   placeholder="Tell us about the project goals, timelines, and key integrations..."
                 ></textarea>
+                <ValidationError prefix="Message" field="message" errors={state.errors} style={{ color: '#EF4444', fontSize: '0.8rem', marginTop: '4px' }} />
               </div>
 
-              <button className="btn btn-primary" type="submit" style={{ width: '100%', marginTop: '10px' }}>
-                Submit Request <span className="arrow-right">→</span>
+              {state.errors && state.errors.length > 0 && (
+                <div style={{ color: '#EF4444', fontSize: '0.85rem', marginBottom: '12px', fontWeight: '600' }}>
+                  There was a validation error submitting your request. Please check fields.
+                </div>
+              )}
+
+              <button 
+                className="btn btn-primary" 
+                type="submit" 
+                disabled={state.submitting}
+                style={{ width: '100%', marginTop: '10px', opacity: state.submitting ? 0.7 : 1, cursor: state.submitting ? 'not-allowed' : 'pointer' }}
+              >
+                {state.submitting ? 'Sending Request...' : 'Submit Request'} <span className="arrow-right">→</span>
               </button>
             </form>
           )}
